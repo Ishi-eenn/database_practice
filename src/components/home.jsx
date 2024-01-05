@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../firebase'
 import Card from './card';
-
+import './home.css'
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -17,13 +17,11 @@ function Home() {
   }, [])
 
   return (
-    <div>
+    <div className='cardPage'>
       {posts.map((post) =>
         {
         return (
-          <div className="cardPage" key={post.id}>
             <Card title={post.title} text={post.text} date={post.timestamp.toDate().toString().split(' ')} id={post.id} />
-          </div>
       )})}
     </div>
   )

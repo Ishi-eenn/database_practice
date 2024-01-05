@@ -1,4 +1,6 @@
-.cardPage{
+.cardPage {
 	display: flex;
-	justify-content: center;
-}
+	flex-wrap: wrap;
+	justify-content: space-around; /* または space-between など、適切な justify-content を指定 */
+  }
+

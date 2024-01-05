@@ -7,20 +7,23 @@ function CreatePost() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
 
-  const buttonCleckd = () => {
-    addDoc(collection(db, "toDoList"), {
+  const buttonCleckd = async () => {
+    const addToDo = async () => {
+      await addDoc(collection(db, "toDoList"), {
       title: title,
       text: text,
       timestamp: serverTimestamp(),
-    });
+    })};
+    await addToDo();
     setTitle("");
     setText("");
+    window.location.href = "/";
   }
 
   return (
     <div className="createPostPage">
       <div className="createPostContainer">
-        <h1>記事を書く</h1>
+        <h1>リストに追加</h1>
         <div className="inputPost">
           <div>タイトル</div>
           <input type="text"
