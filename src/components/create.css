@@ -1,11 +1,11 @@
-.createPostPage {
+.CreatePage {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 90vh;
 }
 
-.createPostContainer {
+.CreateContainer {
   background-color: white;
   border-radius: 10px;
   width: 400px;
@@ -19,11 +19,11 @@
   box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
-.createPostContainer h1 {
+.CreateContainer h1 {
   margin: 0px;
 }
 
-.createPostContainer input {
+.CreateContainer input {
   width: 100%;
   height: 30px;
   border-radius: 5px;

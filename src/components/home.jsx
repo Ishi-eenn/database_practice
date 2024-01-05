@@ -8,12 +8,12 @@ function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const getPost = async () => {
+    const getToDoList = async () => {
       const data = await getDocs(collection(db, 'toDoList'));
       const sortedPosts = data.docs.map(doc => ({...doc.data(), id: doc.id})).sort((a, b) => a.timestamp.toDate() - b.timestamp.toDate());
       setPosts(sortedPosts);
     }
-    getPost();
+    getToDoList();
   }, [])
 
   return (
@@ -21,7 +21,12 @@ function Home() {
       {posts.map((post) =>
         {
         return (
-            <Card title={post.title} text={post.text} date={post.timestamp.toDate().toString().split(' ')} id={post.id} />
+            <Card key={post.id}
+                  title={post.title}
+                  text={post.text}
+                  date={post.timestamp.toDate().toString().split(' ')}
+                  id={post.id}
+            />
       )})}
     </div>
   )

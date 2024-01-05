@@ -1,18 +1,16 @@
-import { useState } from 'react'
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './components/home'
-import CleatePost from './components/createPost'
+import Cleate from './components/create'
 import Header from './components/header'
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/create' element={<CleatePost />}></Route>
+        <Route path='/create' element={<Cleate />}></Route>
       </Routes>
     </BrowserRouter>
   )

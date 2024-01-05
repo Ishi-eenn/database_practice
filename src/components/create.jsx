@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./createPost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db, serverTimestamp } from "../firebase";
+import "./create.css";
 
-function CreatePost() {
+function Create() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
 
@@ -21,8 +21,8 @@ function CreatePost() {
   }
 
   return (
-    <div className="createPostPage">
-      <div className="createPostContainer">
+    <div className="CreatePage">
+      <div className="CreateContainer">
         <h1>リストに追加</h1>
         <div className="inputPost">
           <div>タイトル</div>
@@ -39,4 +39,4 @@ function CreatePost() {
   );
 }
 
-export default CreatePost;
+export default Create;
