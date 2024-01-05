@@ -1,21 +1,16 @@
 import { useState } from "react";
 import "./createPost.css";
 import { addDoc, collection } from "firebase/firestore";
-import { db, auth, serverTimestamp } from "../firebase";
+import { db, serverTimestamp } from "../firebase";
 
 function CreatePost() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
 
   const buttonCleckd = () => {
-    addDoc(collection(db, "posts"), {
+    addDoc(collection(db, "toDoList"), {
       title: title,
       text: text,
-      auther: {
-        uid: auth.currentUser.uid,
-        displayName: auth.currentUser.displayName,
-        email: auth.currentUser.email,
-      },
       timestamp: serverTimestamp(),
     });
     setTitle("");

@@ -6,12 +6,9 @@ function Header() {
   return (
     <header>
       <h1>title</h1>
-      {/* <input name="query" onChange={(e) => {console.log(e.target.value)}}/> */}
       <div className="headerLink">
-        <Link to="/">ホーム</Link>
-        <Link to="/create">記事</Link>
-        <Link to="/login">log in</Link>
-        <Link to="/logout">log out</Link>
+        <Link to="/">一覧</Link>
+        <Link to="/create">作成</Link>
       </div>
     </header>
   );
