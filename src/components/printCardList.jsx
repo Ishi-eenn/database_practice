@@ -30,13 +30,13 @@ function Card(props) {
 
 function PrintCardList({ bookData }) {
   return (
-    <div className="cardList">
+    <>
       {bookData.map((data) => {
         return (
           <Card key={data.id} id={data.id} title={data.title} description={data.description} />
-        );
-      })}
-    </div>
+          );
+        })}
+    </>
   );
 }
 

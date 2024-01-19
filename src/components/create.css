@@ -32,7 +32,7 @@
 
 .search input {
   width: 80%;
-  height: 300px;
+  /* height: 300px; */
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 0px 10px;
@@ -40,11 +40,11 @@
 
 .search button {
   width: 30%;
-  height: 30px;
+  /* height: 30px; */
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 0px 10px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 .CreateContainer h1 {
@@ -62,7 +62,7 @@
 .book {
   background-color: white;
   display: flex;
-  height: 300px;
+  /* height: 300px; */
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
