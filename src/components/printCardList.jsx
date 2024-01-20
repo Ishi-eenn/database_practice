@@ -20,11 +20,18 @@ function Card(props) {
   };
 
   return (
-    <div className="card">
-      <div className="card-title">{props.title}</div>
-      <div className="card-text">{props.description}</div>
-      <button className="card-button" onClick={handleDeleteClick}>削除</button>
-    </div>
+    <>
+      <div className="card">
+        <div className="card-title">{props.title}</div>
+        <div className="card-nods">
+          <img src={props.url} alt="book" />
+          <div className="card-texts">
+            <div className="card-text">{props.description}</div>
+            <button className="card-button" onClick={handleDeleteClick}>削除</button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -33,7 +40,7 @@ function PrintCardList({ bookData }) {
     <>
       {bookData.map((data) => {
         return (
-          <Card key={data.id} id={data.id} title={data.title} description={data.description} />
+          <Card key={data.id} id={data.id} title={data.title} description={data.description} url={data.url} />
           );
         })}
     </>

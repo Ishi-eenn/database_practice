@@ -16,6 +16,7 @@ function PrintSearchBooks({ searchResult }) {
               const book = {
                 title: data.volumeInfo.title,
                 description: data.volumeInfo.description,
+                url: data.volumeInfo.imageLinks.thumbnail,
               };
               await postToDoList(book);
             }}>追加</button>
@@ -31,10 +32,24 @@ function Test() {
   const [searchResult, setSearchResult] = useState([]);
 
   const bookDataFromUrl = async (string) => {
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${string}&&cnt=100`);
-    const data = await response.json();
-    console.log(data);
-    setSearchResult(data.items);
+    try {
+      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${string}&&cnt=1`);
+      if (!response.ok) {
+        throw new Error("もしかして上限きちゃった？");
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+      if (data.items) {
+        setSearchResult(data.items);
+      } else {
+        // Handle the case where items are not present in the response
+        setSearchResult([]);
+      }
+    } catch (error) {
+      console.error("値が取れなかったああああああ", error);
+    }
   }
 
   return (
@@ -45,18 +60,19 @@ function Test() {
           <h1>リストに追加</h1>
           <div className="inputPage">
             <div className="search">
-              <input type="text"
-                    placeholder="タイトルを記入"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      setInput(value);
-                    }}
-                    />
-              <button onClick={() => {bookDataFromUrl(input)}}>検索</button>
+              <input
+                type="text"
+                placeholder="タイトルを記入"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setInput(value);
+                }}
+              />
+              <button onClick={() => { bookDataFromUrl(input) }}>検索</button>
             </div>
           </div>
         </div>
-          <PrintSearchBooks searchResult={searchResult} />
+        <PrintSearchBooks searchResult={searchResult} />
       </div>
     </>
   );

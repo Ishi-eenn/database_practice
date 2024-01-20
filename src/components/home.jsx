@@ -15,6 +15,8 @@ function Home() {
     getBookData();
   }, [])
 
+  console.log(bookData);
+
   return (
       <PrintCardList bookData={bookData}/>
   )

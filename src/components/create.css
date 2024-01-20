@@ -13,13 +13,14 @@
 .CreateContainer {
   background-color: white;
   border-radius: 10px;
-  width: 80%;
+  width: 90%;
+  margin: 2% 5% 2% 5%;
   height: 30%;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px 40px;
   gap: 20px;
   box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
 }

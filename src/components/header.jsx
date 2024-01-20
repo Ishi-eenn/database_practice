@@ -8,8 +8,8 @@ function Header() {
       <h1>読書管理アプリ</h1>
       <div className="headerLink">
         <Link to="/">一覧</Link>
-        <Link to="/create">作成</Link>
-        <Link to="/test">テスト</Link>
+        {/* <Link to="/create">test</Link> */}
+        <Link to="/test">作成</Link>
       </div>
     </header>
   );

@@ -1,16 +1,32 @@
 .card {
+  display: flex;
   position: relative;
   background-color: #fff;
   border-radius: 2px;
-  /* display: inline-block; */
+  display: inline-block;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 250px;
   width: 90%;
   padding-top: 10px;
   margin: 2% 5% 2% 5%;
   border-radius: 10px;
   box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.card-nods{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.card-nods img{
+  width: 100px;
+  height: 60%;
+  position: absolute;
+  top: 18%;
+  left: 3%;
 }
 
 .cardList {
@@ -27,6 +43,16 @@
   color: #000;
   margin: 0;
   margin-bottom: 10px;
+  padding: 0;
+}
+
+.card-text {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  font-size: 1em;
+  color: #000;
+  margin-left: 50px;
   padding: 0;
 }
 
