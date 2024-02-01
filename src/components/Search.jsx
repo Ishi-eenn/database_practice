@@ -5,13 +5,12 @@ import { Container, TextField,
 } from '@mui/material'
 
 const BookSearch = () => {
-  const keyword = useRef('')  
+  const [word, setword] = useState('')
   const [searchResult, setSearchResult] = useState([])
 
-  const search = async (keyword, e) => {
-    e.preventDefault()
+  const search = async () => {
   
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword.current.value}`)
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${word}`)
       .then( response => response.json())
     console.log(response.items)
 
@@ -42,7 +41,7 @@ setSearchResult(newList) })
         }}
       >
         <Typography component="h1" variant="h5">本を検索</Typography>
-        <Box component="form" onSubmit={ e => search(keyword, e) }
+        <Box component="form"
         sx={{ mt: 1}}>
           <TextField
             required
@@ -50,13 +49,14 @@ setSearchResult(newList) })
             label="本を検索"
             placeholder="本のタイトルを入力してください"
             name="search"
-            inputRef={keyword}
+            onChange={(e) => setword(e.target.value)}
           />
           <Button
-            type="submit"
             fullWidth
             variant="contained"
-            sx={{ my: 2 }}>
+            sx={{ my: 2 }} 
+            onClick={() => {search()}}
+            >
               検索する
             </Button>
         </Box>
