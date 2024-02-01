@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Container, TextField,
   Button, Typography, Box, 
   Grid, Card, CardMedia, CardContent
@@ -9,21 +9,18 @@ const BookSearch = () => {
   const [searchResult, setSearchResult] = useState([])
 
   const search = async () => {
-  
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${word}`)
       .then( response => response.json())
     console.log(response.items)
 
-  const newList = []
-  response.items.map( book => {
-  const title = book.volumeInfo.title
-  const img = book.volumeInfo.imageLinks
-  const description = book.volumeInfo.description
-  newList.push({ title: title ? title : '',
-    image: img ? img.thumbnail : '',
-    description: description ? description.slice(0, 40) : ''
-  })
-setSearchResult(newList) })
+    const newList = response.items.map( book => {
+      return ({
+        title: book.volumeInfo.title ? book.volumeInfo.title : '',
+        image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '',
+        description: book.volumeInfo.description ? book.volumeInfo.description.slice(0, 50) : ''
+      })
+    })
+    setSearchResult(newList)
   }
 
   const addBook = () => {
