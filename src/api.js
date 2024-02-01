@@ -28,6 +28,10 @@ async function request(path, options = null) {
 	});
   }
 
+  export function getLogin() {
+	return request("/login");
+  }
+
 
 
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, TextField,
-  Button, Typography, Box, 
+  Button, Typography, Box,
   Grid, Card, CardMedia, CardContent
 } from '@mui/material'
 
@@ -37,7 +37,7 @@ const BookSearch = () => {
           alignItems: 'center'
         }}
       >
-        <Typography component="h1" variant="h5">本を検索</Typography>
+        <Typography component="h1" variant="h5" style={{ userSelect: 'none'}} >本を検索</Typography>
         <Box component="form"
         sx={{ mt: 1}}>
           <TextField
@@ -51,7 +51,7 @@ const BookSearch = () => {
           <Button
             fullWidth
             variant="contained"
-            sx={{ my: 2 }} 
+            sx={{ my: 2 }}
             onClick={() => {search()}}
             >
               検索する
