@@ -10,13 +10,16 @@ import { useState, createContext } from 'react'
 export const BookDataContext = createContext()
 
 function App() {
+  const [user, setUser] = useState(-1)
   const [bookData, setBookData] = useState([])
+
+  console.log(user);
   return (
     <BookDataContext.Provider value={[ bookData, setBookData ]}>
       <BrowserRouter>
-        <Header />
+        <Header isLogin={user}/>
         <Routes>
-          <Route path='/' element={<Login />}></Route>
+          <Route path='/' element={<Login setUser={setUser} />}></Route>
           <Route path='/home' element={<Home />}></Route>
           <Route path='/create' element={<Cleate />}></Route>
           <Route path='/search' element={<Search />}></Route>

@@ -2,8 +2,10 @@ import { AppBar, Toolbar, Typography, Container, Button } from '@mui/material';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
+  const { isLogin } = props;
   const navigate = useNavigate();
+
   return (
     <>
       <AppBar position="static">
@@ -29,10 +31,16 @@ function Header() {
               >
               読書管理アプリ
             </Typography>
-            <Button color="inherit" sx={{ width : 150}} onClick={() => {
-              navigate("/home");
-            }} >一覧</Button>
-            <Button color="inherit" sx={{ width : 150}} onClick={() => {navigate("/search")}}>検索</Button>
+            { isLogin !== -1 ? (
+              <>
+                <Button color="inherit" sx={{ width : 150}} onClick={() => {navigate("/home");}} >一覧</Button>
+                <Button color="inherit" sx={{ width : 150}} onClick={() => {navigate("/search")}}>検索</Button>
+              </>
+            ) : (
+              <>
+                <Button color="inherit" sx={{ width : 150}} onClick={() => {navigate("/")}}>login</Button>
+              </>
+            )}
           </Toolbar>
         </Container>
       </AppBar>

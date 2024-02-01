@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Button, TextField, Box, Typography, Container } from '@mui/material';
 
-function LogIn() {
+function LogIn(props) {
+  const { setUser } = props;
   const navigate = useNavigate();
   return (
     <>
@@ -17,7 +18,7 @@ function LogIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={() => {navigate("/home")}} noValidate sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -39,10 +40,14 @@ function LogIn() {
               autoComplete="current-password"
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {
+                console.log('ログイン成功');
+                setUser(1);
+                navigate("/home");
+              }}
               >
               Sign In
             </Button>
