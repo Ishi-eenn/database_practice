@@ -3,7 +3,7 @@ import { Button, TextField, Box, Typography, Container } from "@mui/material";
 import { useState, useEffect } from "react";
 import { getLogin } from "../api";
 
-function LogIn(props) {
+function SignIn(props) {
 	const { setUser } = props;
 	const [userData, setUserData] = useState([]);
 	const [inputUserData, setInputUserData] = useState({
@@ -20,8 +20,6 @@ function LogIn(props) {
 		getBookData();
 	}, []);
 
-	// console.log(userData);
-
 	const clickHandler = () => {
 		const user = userData.find((element) => {
 			return (
@@ -30,9 +28,12 @@ function LogIn(props) {
 			);
 		});
 
-		if (user !== undefined) {
-			setUser(user.id);
-			navigate("/home");
+		if (user === undefined) {
+			// setUser(user.id);
+			// navigate("/home");
+			console.log("user found");
+		} else {
+			alert("そのユーザーは存在しています。");
 		}
 	};
 
@@ -48,7 +49,7 @@ function LogIn(props) {
 					}}
 				>
 					<Typography component="h1" variant="h5">
-						Login
+						Sign In
 					</Typography>
 					<Box component="form" noValidate sx={{ mt: 1 }}>
 						<TextField
@@ -86,7 +87,7 @@ function LogIn(props) {
 							sx={{ mt: 3, mb: 2 }}
 							onClick={clickHandler}
 						>
-							Login
+							Sign In
 						</Button>
 					</Box>
 				</Box>
@@ -95,4 +96,4 @@ function LogIn(props) {
 	);
 }
 
-export default LogIn;
+export default SignIn;
