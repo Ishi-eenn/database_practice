@@ -3,7 +3,7 @@ import './App.css'
 import Home from './components/home'
 import Cleate from './components/create'
 import Header from './components/header'
-import Test from './components/test'
+import Search from './components/Search'
 import { useState, createContext } from 'react'
 
 export const BookDataContext = createContext()
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/create' element={<Cleate />}></Route>
-          <Route path='/test' element={<Test />}></Route>
+          <Route path='/search' element={<Search />}></Route>
         </Routes>
       </BrowserRouter>
     </BookDataContext.Provider>
