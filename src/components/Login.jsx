@@ -20,8 +20,6 @@ function LogIn(props) {
 		getBookData();
 	}, []);
 
-	// console.log(userData);
-
 	const clickHandler = () => {
 		const user = userData.find((element) => {
 			return (
@@ -33,6 +31,8 @@ function LogIn(props) {
 		if (user !== undefined) {
 			setUser(user.id);
 			navigate("/home");
+		} else {
+			alert("そのユーザーは存在していません。");
 		}
 	};
 

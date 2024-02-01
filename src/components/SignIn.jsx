@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Box, Typography, Container } from "@mui/material";
 import { useState, useEffect } from "react";
-import { getLogin } from "../api";
+import { postLogin, getLogin } from "../api";
 
 function SignIn(props) {
 	const { setUser } = props;
@@ -28,10 +28,20 @@ function SignIn(props) {
 			);
 		});
 
-		if (user === undefined) {
-			// setUser(user.id);
-			// navigate("/home");
-			console.log("user found");
+		const registerUser = async () => {
+			const data = {
+				email: inputUserData.email,
+				password: inputUserData.password,
+			};
+			await postLogin(data);
+		};
+
+		if (inputUserData.email === "" || inputUserData.password === "") {
+			alert("無効な値です。");
+		} else if (user === undefined) {
+			registerUser();
+			alert("新規登録しました。");
+			navigate("/");
 		} else {
 			alert("そのユーザーは存在しています。");
 		}
