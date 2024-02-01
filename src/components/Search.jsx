@@ -71,7 +71,6 @@ function Search() {
         <Box component="form" onSubmit={ ()=> console.log("btn")} 
         sx={{ mt: 1}}>
           <TextField
-            required
             fullWidth
             label="本を検索"
             placeholder="本のタイトルを入力してください"

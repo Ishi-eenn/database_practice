@@ -4,6 +4,7 @@ import Home from './components/home'
 import Cleate from './components/create'
 import Header from './components/header'
 import Search from './components/Search'
+import Login from './components/Login'
 import { useState, createContext } from 'react'
 
 export const BookDataContext = createContext()
@@ -15,7 +16,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<Home />}></Route>
+          <Route path='/' element={<Login />}></Route>
+          <Route path='/home' element={<Home />}></Route>
           <Route path='/create' element={<Cleate />}></Route>
           <Route path='/search' element={<Search />}></Route>
         </Routes>
