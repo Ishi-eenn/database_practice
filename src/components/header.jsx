@@ -12,7 +12,6 @@ function Header(props) {
 				<Container maxWidth="xl">
 					<Toolbar disableGutters>
 						<AutoStoriesIcon sx={{ mr: 2 }} />
-
 						<Typography
 							style={{ userSelect: "none" }}
 							variant="h5"

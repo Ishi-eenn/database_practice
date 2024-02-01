@@ -3,8 +3,7 @@ import { Button, TextField, Box, Typography, Container } from "@mui/material";
 import { useState, useEffect } from "react";
 import { postLogin, getLogin } from "../api";
 
-function SignIn(props) {
-	const { setUser } = props;
+function SignIn() {
 	const [userData, setUserData] = useState([]);
 	const [inputUserData, setInputUserData] = useState({
 		email: "",

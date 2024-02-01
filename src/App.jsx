@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/home";
 import Cleate from "./components/create";
 import Header from "./components/header";
-import Search from "./components/Search";
+import Search from "./components/BookSearch";
 import Login from "./components/Login";
 import SignIn from "./components/SignIn";
 import { useState, createContext } from "react";
@@ -21,7 +21,7 @@ function App() {
 				<Header isLogin={user} />
 				<Routes>
 					<Route path="/" element={<Login setUser={setUser} />}></Route>
-					<Route path="/signin" element={<SignIn setUser={setUser} />}></Route>
+					<Route path="/signin" element={<SignIn />}></Route>
 					<Route path="/home" element={<Home />}></Route>
 					<Route path="/create" element={<Cleate />}></Route>
 					<Route path="/search" element={<Search />}></Route>
