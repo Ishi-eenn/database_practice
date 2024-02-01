@@ -18,7 +18,7 @@ function Header() {
               component="a"
               sx={{
                 mr: 2,
-                display: { xs: 'flex', md: 'none' },
+                my: 3,
                 flexGrow: 1,
                 fontFamily: 'monospace',
                 fontWeight: 700,
@@ -29,10 +29,10 @@ function Header() {
               >
               読書管理アプリ
             </Typography>
-            <Button color="inherit" onClick={() => {
+            <Button color="inherit" sx={{ width : 150}} onClick={() => {
               navigate("/home");
-            }} sx={{ width : 100}}>一覧</Button>
-            <Button color="inherit" onClick={() => {navigate("/search")}} sx={{ width : 100}}>検索</Button>
+            }} >一覧</Button>
+            <Button color="inherit" sx={{ width : 150}} onClick={() => {navigate("/search")}}>検索</Button>
           </Toolbar>
         </Container>
       </AppBar>
