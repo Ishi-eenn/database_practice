@@ -13,7 +13,6 @@ function App() {
 	const [user, setUser] = useState(-1);
 	const [bookData, setBookData] = useState([]);
 
-	console.log(user);
 	return (
 		<BookDataContext.Provider value={[bookData, setBookData]}>
 			<BrowserRouter>

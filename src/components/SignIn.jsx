@@ -57,7 +57,11 @@ function SignIn() {
 						alignItems: "center",
 					}}
 				>
-					<Typography component="h1" variant="h5">
+					<Typography
+						component="h1"
+						variant="h5"
+						style={{ userSelect: "none" }}
+					>
 						Sign In
 					</Typography>
 					<Box component="form" noValidate sx={{ mt: 1 }}>

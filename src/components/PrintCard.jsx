@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { BookDataContext } from "../App.jsx";
 import { getToDoLists, deleteToDoList } from "../api.js";
 import {
@@ -29,9 +29,6 @@ const PrintCard = (props) => {
 		};
 		getBookData();
 	}, []);
-
-	console.log(bookData);
-	console.log(user);
 
 	return (
 		<>

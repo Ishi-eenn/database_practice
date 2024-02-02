@@ -47,7 +47,11 @@ function LogIn(props) {
 						alignItems: "center",
 					}}
 				>
-					<Typography component="h1" variant="h5">
+					<Typography
+						component="h1"
+						variant="h5"
+						style={{ userSelect: "none" }}
+					>
 						Login
 					</Typography>
 					<Box component="form" noValidate sx={{ mt: 1 }}>

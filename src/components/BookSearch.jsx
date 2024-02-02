@@ -21,7 +21,6 @@ const BookSearch = (props) => {
 		const response = await fetch(
 			`https://www.googleapis.com/books/v1/volumes?q=${word}`,
 		).then((response) => response.json());
-		console.log(response.items);
 
 		const newList = response.items.map((book) => {
 			return {
@@ -46,7 +45,6 @@ const BookSearch = (props) => {
 			userId: user,
 		};
 		await postToDoList(book);
-		console.log(book);
 	};
 
 	return (
