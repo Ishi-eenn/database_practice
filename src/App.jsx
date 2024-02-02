@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/home";
 import Cleate from "./components/create";
 import Header from "./components/header";
-import Search from "./components/BookSearch";
+import BookSearch from "./components/BookSearch";
 import Login from "./components/Login";
 import SignIn from "./components/SignIn";
 import { useState, createContext } from "react";
@@ -24,7 +24,7 @@ function App() {
 					<Route path="/signin" element={<SignIn />}></Route>
 					<Route path="/home" element={<Home />}></Route>
 					<Route path="/create" element={<Cleate />}></Route>
-					<Route path="/search" element={<Search />}></Route>
+					<Route path="/search" element={<BookSearch user={user} />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</BookDataContext.Provider>

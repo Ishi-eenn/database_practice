@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { postToDoList } from "../api.js";
 import {
 	Container,
 	TextField,
@@ -11,7 +12,8 @@ import {
 	CardContent,
 } from "@mui/material";
 
-const BookSearch = () => {
+const BookSearch = (props) => {
+	const { user } = props;
 	const [word, setword] = useState("");
 	const [searchResult, setSearchResult] = useState([]);
 
@@ -35,8 +37,16 @@ const BookSearch = () => {
 		setSearchResult(newList);
 	};
 
-	const addBook = () => {
-		console.log("btn clicked");
+	const addBook = async (props) => {
+		const { card } = props;
+		const book = {
+			title: card.title,
+			description: card.description,
+			url: card.image,
+			userId: user,
+		};
+		await postToDoList(book);
+		console.log(book);
 	};
 
 	return (
@@ -103,7 +113,9 @@ const BookSearch = () => {
 											<Button
 												variant="contained"
 												size="small"
-												onClick={() => addBook()}
+												onClick={() => {
+													addBook({ card });
+												}}
 											>
 												追加
 											</Button>
